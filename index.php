@@ -15,7 +15,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Inter:wght@700;800&display=swap" rel="stylesheet">
-    
+
     <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
@@ -56,9 +56,9 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav ms-auto">
-                        <a href="index.html" class="nav-item nav-link active">Inicio</a>
-                        <a href="about.html" class="nav-item nav-link">Acerca</a>
-                        <a href="contact.html" class="nav-item nav-link">Contacto</a>
+                        <a href="index.php" class="nav-item nav-link active">Inicio</a>
+                        <a href="about.php" class="nav-item nav-link">Acerca</a>
+                        <a href="contact.php" class="nav-item nav-link">Contacto</a>
                     </div>
                     <a href="" class="btn btn-primary px-3 d-none d-lg-flex">Iniciar sesion</a>
                 </div>
@@ -79,10 +79,13 @@
                 <div class="col-md-6 animated fadeIn">
                     <div class="owl-carousel header-carousel">
                         <div class="owl-carousel-item">
-                            <img class="img-fluid" src="img/carousel-1.jpg" alt="">
+                            <img class="img-fluid" src="img/carousel-3.jpg" alt="">
                         </div>
                         <div class="owl-carousel-item">
-                            <img class="img-fluid" src="img/carousel-2.jpg" alt="">
+                            <img class="img-fluid" src="img/carousel-4.jfif" alt="">
+                        </div>
+                        <div class="owl-carousel-item">
+                            <img class="img-fluid" src="https://www.dhresource.com/webp/m/0x0/f2/albu/g21/M01/4B/A5/rBVaqmCHfV-ARX0gAASBPJSptf4991.jpg" alt="">
                         </div>
                     </div>
                 </div>
@@ -98,11 +101,16 @@
                     <div class="col-md-10">
                         <div class="row g-2">
                             <div class="col-md-4">
-                                <input type="text" class="form-control border-0 py-3" placeholder="Search Keyword">
+                            <select class="form-select border-0 py-3">
+                                    <option selected>Tamaño</option>
+                                    <option value="1">Tamaño 1</option>
+                                    <option value="2">Tamaño 2</option>
+                                    <option value="3">Tamaño 3</option>
+                                </select>
                             </div>
                             <div class="col-md-4">
                                 <select class="form-select border-0 py-3">
-                                    <option selected>Property Type</option>
+                                    <option selected>Tematica</option>
                                     <option value="1">Property Type 1</option>
                                     <option value="2">Property Type 2</option>
                                     <option value="3">Property Type 3</option>
@@ -110,7 +118,7 @@
                             </div>
                             <div class="col-md-4">
                                 <select class="form-select border-0 py-3">
-                                    <option selected>Location</option>
+                                    <option selected>Parque</option>
                                     <option value="1">Location 1</option>
                                     <option value="2">Location 2</option>
                                     <option value="3">Location 3</option>
@@ -119,7 +127,7 @@
                         </div>
                     </div>
                     <div class="col-md-2">
-                        <button class="btn btn-dark border-0 w-100 py-3">Search</button>
+                        <button class="btn btn-dark border-0 w-100 py-3">Vamos!</button>
                     </div>
                 </div>
             </div>
@@ -131,8 +139,8 @@
         <div class="container-xxl py-5">
             <div class="container">
                 <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-                    <h1 class="mb-3">Property Types</h1>
-                    <p>Eirmod sed ipsum dolor sit rebum labore magna erat. Tempor ut dolore lorem kasd vero ipsum sit eirmod sit. Ipsum diam justo sed rebum vero dolor duo.</p>
+                    <h1 class="mb-3">Nuestras categorias</h1>
+                    <p>En cabin tenemos cabañas para todos los estilos, clases y turistas.</p>
                 </div>
                 <div class="row g-4">
                     <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
@@ -141,7 +149,7 @@
                                 <div class="icon mb-3">
                                     <img class="img-fluid" src="img/icon-apartment.png" alt="Icon">
                                 </div>
-                                <h6>Apartment</h6>
+                                <h6>Grandes</h6>
                                 <span>123 Properties</span>
                             </div>
                         </a>
@@ -152,7 +160,7 @@
                                 <div class="icon mb-3">
                                     <img class="img-fluid" src="img/icon-villa.png" alt="Icon">
                                 </div>
-                                <h6>Villa</h6>
+                                <h6>Economicas</h6>
                                 <span>123 Properties</span>
                             </div>
                         </a>
@@ -163,7 +171,7 @@
                                 <div class="icon mb-3">
                                     <img class="img-fluid" src="img/icon-house.png" alt="Icon">
                                 </div>
-                                <h6>Home</h6>
+                                <h6>Prestigiosas</h6>
                                 <span>123 Properties</span>
                             </div>
                         </a>
@@ -174,7 +182,7 @@
                                 <div class="icon mb-3">
                                     <img class="img-fluid" src="img/icon-housing.png" alt="Icon">
                                 </div>
-                                <h6>Office</h6>
+                                <h6>Pequeñas</h6>
                                 <span>123 Properties</span>
                             </div>
                         </a>
@@ -185,7 +193,7 @@
                                 <div class="icon mb-3">
                                     <img class="img-fluid" src="img/icon-building.png" alt="Icon">
                                 </div>
-                                <h6>Building</h6>
+                                <h6>Urbanas</h6>
                                 <span>123 Properties</span>
                             </div>
                         </a>
@@ -196,7 +204,7 @@
                                 <div class="icon mb-3">
                                     <img class="img-fluid" src="img/icon-neighborhood.png" alt="Icon">
                                 </div>
-                                <h6>Townhouse</h6>
+                                <h6>Ecologicas</h6>
                                 <span>123 Properties</span>
                             </div>
                         </a>
@@ -207,7 +215,7 @@
                                 <div class="icon mb-3">
                                     <img class="img-fluid" src="img/icon-condominium.png" alt="Icon">
                                 </div>
-                                <h6>Shop</h6>
+                                <h6>Playeras</h6>
                                 <span>123 Properties</span>
                             </div>
                         </a>
@@ -218,7 +226,7 @@
                                 <div class="icon mb-3">
                                     <img class="img-fluid" src="img/icon-luxury.png" alt="Icon">
                                 </div>
-                                <h6>Garage</h6>
+                                <h6>Villas</h6>
                                 <span>123 Properties</span>
                             </div>
                         </a>
@@ -239,12 +247,12 @@
                         </div>
                     </div>
                     <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
-                        <h1 class="mb-4">#1 Place To Find The Perfect Property</h1>
-                        <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
-                        <p><i class="fa fa-check text-primary me-3"></i>Tempor erat elitr rebum at clita</p>
-                        <p><i class="fa fa-check text-primary me-3"></i>Aliqu diam amet diam et eos</p>
-                        <p><i class="fa fa-check text-primary me-3"></i>Clita duo justo magna dolore erat amet</p>
-                        <a class="btn btn-primary py-3 px-5 mt-3" href="">Read More</a>
+                        <h1 class="mb-4">#1 Nuestra mejor cabaña a nivel nacional</h1>
+                        <p class="mb-4">Al estilo americano y con inmobiliario de lujo, esta cabaña es la mejor opcion para aquellas personas que les gusta la vida prestigiosa, sin gastar mucho dinero.</p>
+                        <p><i class="fa fa-check text-primary me-3"></i>Excelente relacion calidad - precio</p>
+                        <p><i class="fa fa-check text-primary me-3"></i>Agua caliente y jacuzzi</p>
+                        <p><i class="fa fa-check text-primary me-3"></i>Cine en casa de ultima generacion</p>
+                        <a class="btn btn-primary py-3 px-5 mt-3" href="">Reservar!</a>
                     </div>
                 </div>
             </div>
@@ -646,48 +654,18 @@
         <!-- Property List End -->
 
 
-        <!-- Call to Action Start -->
-        <div class="container-xxl py-5">
-            <div class="container">
-                <div class="bg-light rounded p-3">
-                    <div class="bg-white rounded p-4" style="border: 1px dashed rgba(0, 185, 142, .3)">
-                        <div class="row g-5 align-items-center">
-                            <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
-                                <img class="img-fluid rounded w-100" src="img/call-to-action.jpg" alt="">
-                            </div>
-                            <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
-                                <div class="mb-4">
-                                    <h1 class="mb-3">Contact With Our Certified Agent</h1>
-                                    <p>Eirmod sed ipsum dolor sit rebum magna erat. Tempor lorem kasd vero ipsum sit sit diam justo sed vero dolor duo.</p>
-                                </div>
-                                <a href="" class="btn btn-primary py-3 px-4 me-2"><i class="fa fa-phone-alt me-2"></i>Make A Call</a>
-                                <a href="" class="btn btn-dark py-3 px-4"><i class="fa fa-calendar-alt me-2"></i>Get Appoinment</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Call to Action End -->
-
-
         <!-- Team Start -->
         <div class="container-xxl py-5">
             <div class="container">
                 <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-                    <h1 class="mb-3">Property Agents</h1>
-                    <p>Eirmod sed ipsum dolor sit rebum labore magna erat. Tempor ut dolore lorem kasd vero ipsum sit eirmod sit. Ipsum diam justo sed rebum vero dolor duo.</p>
+                    <h1 class="mb-3">Nuestros mejores agentes</h1>
+                    <p>En honor a su bella labor y fuerte dedicacion. Estas personas hacen de cabin el mejor lugar para ti y tu familia, cuentan con calificacion A+ por parte de nuestro equipo de calidad</p>
                 </div>
                 <div class="row g-4">
                     <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                         <div class="team-item rounded overflow-hidden">
                             <div class="position-relative">
                                 <img class="img-fluid" src="img/team-1.jpg" alt="">
-                                <div class="position-absolute start-50 top-100 translate-middle d-flex align-items-center">
-                                    <a class="btn btn-square mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                                    <a class="btn btn-square mx-1" href=""><i class="fab fa-twitter"></i></a>
-                                    <a class="btn btn-square mx-1" href=""><i class="fab fa-instagram"></i></a>
-                                </div>
                             </div>
                             <div class="text-center p-4 mt-3">
                                 <h5 class="fw-bold mb-0">Full Name</h5>
@@ -699,11 +677,6 @@
                         <div class="team-item rounded overflow-hidden">
                             <div class="position-relative">
                                 <img class="img-fluid" src="img/team-2.jpg" alt="">
-                                <div class="position-absolute start-50 top-100 translate-middle d-flex align-items-center">
-                                    <a class="btn btn-square mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                                    <a class="btn btn-square mx-1" href=""><i class="fab fa-twitter"></i></a>
-                                    <a class="btn btn-square mx-1" href=""><i class="fab fa-instagram"></i></a>
-                                </div>
                             </div>
                             <div class="text-center p-4 mt-3">
                                 <h5 class="fw-bold mb-0">Full Name</h5>
@@ -715,11 +688,6 @@
                         <div class="team-item rounded overflow-hidden">
                             <div class="position-relative">
                                 <img class="img-fluid" src="img/team-3.jpg" alt="">
-                                <div class="position-absolute start-50 top-100 translate-middle d-flex align-items-center">
-                                    <a class="btn btn-square mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                                    <a class="btn btn-square mx-1" href=""><i class="fab fa-twitter"></i></a>
-                                    <a class="btn btn-square mx-1" href=""><i class="fab fa-instagram"></i></a>
-                                </div>
                             </div>
                             <div class="text-center p-4 mt-3">
                                 <h5 class="fw-bold mb-0">Full Name</h5>
@@ -731,11 +699,6 @@
                         <div class="team-item rounded overflow-hidden">
                             <div class="position-relative">
                                 <img class="img-fluid" src="img/team-4.jpg" alt="">
-                                <div class="position-absolute start-50 top-100 translate-middle d-flex align-items-center">
-                                    <a class="btn btn-square mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                                    <a class="btn btn-square mx-1" href=""><i class="fab fa-twitter"></i></a>
-                                    <a class="btn btn-square mx-1" href=""><i class="fab fa-instagram"></i></a>
-                                </div>
                             </div>
                             <div class="text-center p-4 mt-3">
                                 <h5 class="fw-bold mb-0">Full Name</h5>
@@ -750,11 +713,11 @@
 
 
         <!-- Testimonial Start -->
-        <div class="container-xxl py-5">
+        <div class="container py-5">
             <div class="container">
                 <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-                    <h1 class="mb-3">Our Clients Say!</h1>
-                    <p>Eirmod sed ipsum dolor sit rebum labore magna erat. Tempor ut dolore lorem kasd vero ipsum sit eirmod sit. Ipsum diam justo sed rebum vero dolor duo.</p>
+                    <h1 class="mb-3">Reseñas de nuestros clientes</h1>
+                    <p>Testimonios de algunos de nuestros clientes, gracias por sus opiniones ustedes nos ayudan a mejorar!</p>
                 </div>
                 <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.1s">
                     <div class="testimonial-item bg-light rounded p-3">
@@ -797,17 +760,16 @@
             </div>
         </div>
         <!-- Testimonial End -->
-        
 
         <!-- Footer Start -->
         <div class="container-fluid bg-dark text-white-50 footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
             <div class="container py-5">
                 <div class="row g-5">
                     <div class="col-lg-3 col-md-6">
-                        <h5 class="text-white mb-4">Get In Touch</h5>
-                        <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>123 Street, New York, USA</p>
-                        <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+012 345 67890</p>
-                        <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@example.com</p>
+                        <h5 class="text-white mb-4">Contactanos</h5>
+                        <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>cll 19# 20-48 interior 8 oficina 501</p>
+                        <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+57 350 693 0989</p>
+                        <p class="mb-2"><i class="fa fa-envelope me-3"></i>dev.andres.gutierrez@gmail.com</p>
                         <div class="d-flex pt-2">
                             <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
                             <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
@@ -817,14 +779,12 @@
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <h5 class="text-white mb-4">Quick Links</h5>
-                        <a class="btn btn-link text-white-50" href="">About Us</a>
-                        <a class="btn btn-link text-white-50" href="">Contact Us</a>
-                        <a class="btn btn-link text-white-50" href="">Our Services</a>
-                        <a class="btn btn-link text-white-50" href="">Privacy Policy</a>
-                        <a class="btn btn-link text-white-50" href="">Terms & Condition</a>
+                        <a class="btn btn-link text-white-50" href="">Acerda de nosotros</a>
+                        <a class="btn btn-link text-white-50" href="">Contactanos</a>
+                        <a class="btn btn-link text-white-50" href="">Nuestros servicios</a>
                     </div>
                     <div class="col-lg-3 col-md-6">
-                        <h5 class="text-white mb-4">Photo Gallery</h5>
+                        <h5 class="text-white mb-4">Galleria de fotos</h5>
                         <div class="row g-2 pt-2">
                             <div class="col-4">
                                 <img class="img-fluid rounded bg-light p-1" src="img/property-1.jpg" alt="">
@@ -847,11 +807,11 @@
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6">
-                        <h5 class="text-white mb-4">Newsletter</h5>
+                        <h5 class="text-white mb-4">Promociones vigentes</h5>
                         <p>Dolor amet sit justo amet elitr clita ipsum elitr est.</p>
                         <div class="position-relative mx-auto" style="max-width: 400px;">
-                            <input class="form-control bg-transparent w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">
-                            <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
+                            <input class="form-control bg-transparent w-100 py-3 ps-4 pe-5" type="text" placeholder="tu correo">
+                            <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">enviame!</button>
                         </div>
                     </div>
                 </div>
@@ -860,15 +820,14 @@
                 <div class="copyright">
                     <div class="row">
                         <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                            &copy; <a class="border-bottom" href="#">Your Site Name</a>, All Right Reserved. 
-							
-							<!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
-							Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a>
+                            &copy; <a class="border-bottom" href="#">Cabin.com</a>, All Right Reserved.
+
+                            <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If youd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+                            Designed By <a class="border-bottom">Andres C Gutierrez</a>
                         </div>
                         <div class="col-md-6 text-center text-md-end">
                             <div class="footer-menu">
                                 <a href="">Home</a>
-                                <a href="">Cookies</a>
                                 <a href="">Help</a>
                                 <a href="">FQAs</a>
                             </div>
@@ -877,8 +836,7 @@
                 </div>
             </div>
         </div>
-        <!-- Footer End -->
-
+        <!-- Footer End -->';
 
         <!-- Back to Top -->
         <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
