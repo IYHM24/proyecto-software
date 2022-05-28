@@ -31,6 +31,13 @@
     <link href="css/style.css" rel="stylesheet">
 </head>
 
+    <!-- Acciones -->
+
+    <?php
+        include "./components/Actions.php"
+    ?>
+
+
 <body>
     <div class="container-xxl bg-white p-0">
         <!-- Spinner Start -->
@@ -60,7 +67,12 @@
                         <a href="about.php" class="nav-item nav-link">Acerca</a>
                         <a href="contact.php" class="nav-item nav-link">Contacto</a>
                     </div>
-                    <a href="" class="btn btn-primary px-3 d-none d-lg-flex">Iniciar sesion</a>
+                    <div id="sesionBoton">
+                        <a href="" id="Sesion" onclick="ButtonUser();" class="btn btn-primary px-3 d-none d-lg-flex">Iniciar sesion</a>
+                    </div>
+                    <?php
+                        echo '<script src="./js/validacion.js"></script>';
+                    ?>
                 </div>
             </nav>
         </div>
@@ -86,6 +98,9 @@
                         </div>
                         <div class="owl-carousel-item">
                             <img class="img-fluid" src="https://www.dhresource.com/webp/m/0x0/f2/albu/g21/M01/4B/A5/rBVaqmCHfV-ARX0gAASBPJSptf4991.jpg" alt="">
+                        </div>
+                        <div class="owl-carousel-item">
+                            <img class="img-fluid" src="img/carousel-5.jpg" alt="">
                         </div>
                     </div>
                 </div>
@@ -717,7 +732,7 @@
             <div class="container">
                 <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
                     <h1 class="mb-3">Reseñas de nuestros clientes</h1>
-                    <p>Testimonios de algunos de nuestros clientes, gracias por sus opiniones ustedes nos ayudan a mejorar!</p>
+                    <p>Testimonios de algunos de nuestros clientes, gracias por sus opiniones ustedes nos ayudan a mejorar</p>
                 </div>
                 <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.1s">
                     <div class="testimonial-item bg-light rounded p-3">
@@ -808,7 +823,7 @@
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <h5 class="text-white mb-4">Promociones vigentes</h5>
-                        <p>Dolor amet sit justo amet elitr clita ipsum elitr est.</p>
+                        <p>¿Quieres mas informacion?</p>
                         <div class="position-relative mx-auto" style="max-width: 400px;">
                             <input class="form-control bg-transparent w-100 py-3 ps-4 pe-5" type="text" placeholder="tu correo">
                             <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">enviame!</button>
@@ -841,6 +856,7 @@
         <!-- Back to Top -->
         <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
     </div>
+
 
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
