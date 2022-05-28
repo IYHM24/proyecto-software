@@ -68,7 +68,11 @@
                         <a href="contact.php" class="nav-item nav-link">Contacto</a>
                     </div>
                     <div id="sesionBoton">
-                        <a href="" id="Sesion" onclick="ButtonUser();" class="btn btn-primary px-3 d-none d-lg-flex">Iniciar sesion</a>
+                        <div id="MenuUser" class="nav-item dropdown">
+                            <a id="Sesion"  class="nav-link dropdown-toggle btn btn-primary px-3 d-none d-lg-flex">Iniciar sesion</a>
+                            <div id="menu-content" class="dropdown-menu rounded-0 m-0">
+                            </div>
+                        </div>
                     </div>
                     <?php
                         echo '<script src="./js/validacion.js"></script>';
