@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Makaan - Real Estate HTML Template</title>
+    <title>Cabin - Bienvenido</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -29,6 +29,11 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+
+    <!-- Configs -->
+    <script src="./js/validacion.js"></script>
+    <script src="./config/MenusConfig.js"></script>
+    <script src="./config/optionsConfig.js"></script>
 </head>
 
 <body>
@@ -40,6 +45,7 @@
             </div>
         </div>
         <!-- Spinner End -->
+
 
 
         <!-- Navbar Start -->
@@ -55,16 +61,23 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
-                    <div class="navbar-nav ms-auto">
+                    <div id="options" class="navbar-nav ms-auto">
                         <a href="index.php" class="nav-item nav-link active">Inicio</a>
-                        <a href="about.php" class="nav-item nav-link">Acerca</a>
-                        <a href="contact.php" class="nav-item nav-link">Contacto</a>
                     </div>
-                    <a href="" class="btn btn-primary px-3 d-none d-lg-flex">Iniciar sesion</a>
+                    <div id="sesionBoton">
+                        <div id="MenuUser" class="nav-item dropdown">
+                            <a id="Sesion" class="nav-link dropdown-toggle btn btn-primary px-3 d-none d-lg-flex">Iniciar sesion</a>
+                            <div id="menu-content" class="dropdown-menu rounded-0 m-0">
+                            </div>
+                        </div>
+                    </div>
+                    <?php
+                    echo '<script src="./js/process.js"></script>';
+                    ?>
                 </div>
             </nav>
         </div>
-        <!-- Header End -->
+        <!-- Navbar End -->
 
 
         <!-- Search Start -->
@@ -110,9 +123,9 @@
                     <div class="col-lg-6">
                         <i class="bi bi-exclamation-triangle display-1 text-primary"></i>
                         <h1 class="display-1">404</h1>
-                        <h1 class="mb-4">Page Not Found</h1>
-                        <p class="mb-4">We’re sorry, the page you have looked for does not exist in our website! Maybe go to our home page or try to use a search?</p>
-                        <a class="btn btn-primary py-3 px-5" href="">Go Back To Home</a>
+                        <h1 class="mb-4">La pagina no se encuentra!</h1>
+                        <p class="mb-4">Lo sentimos! pero esta pagina no esta disponible, intenta mas tarde</p>
+                        <a class="btn btn-primary py-3 px-5" href="index.php">Volver al inicio</a>
                     </div>
                 </div>
             </div>

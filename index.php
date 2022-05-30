@@ -29,14 +29,12 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+
+    <!-- Configs -->
+    <script src="./js/validacion.js"></script>
+    <script src="./config/MenusConfig.js"></script>
+    <script src="./config/optionsConfig.js"></script>
 </head>
-
-    <!-- Acciones -->
-
-    <?php
-        include "./components/Actions.php"
-    ?>
-
 
 <body>
     <div class="container-xxl bg-white p-0">
@@ -62,10 +60,8 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
-                    <div class="navbar-nav ms-auto">
+                    <div id="options" class="navbar-nav ms-auto">
                         <a href="index.php" class="nav-item nav-link active">Inicio</a>
-                        <a href="about.php" class="nav-item nav-link">Acerca</a>
-                        <a href="contact.php" class="nav-item nav-link">Contacto</a>
                     </div>
                     <div id="sesionBoton">
                         <div id="MenuUser" class="nav-item dropdown">
@@ -75,7 +71,7 @@
                         </div>
                     </div>
                     <?php
-                        echo '<script src="./js/validacion.js"></script>';
+                        echo '<script src="./js/process.js"></script>';
                     ?>
                 </div>
             </nav>

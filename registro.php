@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="utf-8">
-    <title>Cabin - Ingreso</title>
+    <title>Cabin - Registro</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -27,7 +27,7 @@
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="./css/login.css">
+    <link rel="stylesheet" href="./css/registro.css">
 
 
 
@@ -37,16 +37,23 @@
 
 
 <body>
-
     <div id="Contenedor">
         <form class="container-fluid rounded shadow bg-light w-50 mt-5 mb-5 p-5 wow fadeIn" action="login.php" method="POST">
             <div class="text-center mx-auto mb-2 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-                <h1 class="mb-3">Iniciar sesion</h1>
-                <p>Bienvenido!</p>
+                <h1 class="mb-3"><strong>Registro</strong></h1>
+                <p>Bienvenido a la comunidad</p>
+            </div>
+            <div class="container text-center mt-5">
+                <h4>Datos ingreso</h4>
             </div>
             <!-- Email input -->
             <div class="form-outline mb-4">
                 <label class="form-label" for="email">Email address</label>
+                <input type="email" id="email" name="email" class="form-control" />
+            </div>
+            <!-- usuario input -->
+            <div class="form-outline mb-4">
+                <label class="form-label" for="email">User</label>
                 <input type="email" id="email" name="email" class="form-control" />
             </div>
 
@@ -55,25 +62,39 @@
                 <label class="form-label" for="psw">Password</label>
                 <input type="password" id="psw" name="pwd" class="form-control" />
             </div>
-
-            <!-- 2 column grid layout for inline styling -->
-            <div class="row mb-4">
-                <div class="col d-flex justify-content-center">
-                    <!-- Checkbox -->
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="form2Example34" checked />
-                        <label class="form-check-label" for="form2Example34"> Remember me </label>
-                    </div>
+            <!-- seccion datos personales -->
+            <div class="container text-center mt-5">
+                <h4>Datos personales</h4>
+            </div>
+            <div class="row">
+                <!-- Nombre -->
+                <div class="form-outline mb-4 col">
+                    <label class="form-label" for="email">Nombre</label>
+                    <input type="text" id="email" name="email" class="form-control" />
                 </div>
-
-                <div class="col">
-                    <!-- Simple link -->
-                    <a href="#!">Forgot password?</a>
+                <!-- Apellido -->
+                <div class="form-outline mb-4 col">
+                    <label class="form-label" for="email">Apellidos</label>
+                    <input type="text" id="email" name="email" class="form-control" />
                 </div>
             </div>
-
-           <!-- Submit button -->
-           <div class="container d-flex justify-content-center">
+            <div class="container text-center mt-5">
+                <h4>Datos Bancarios</h4>
+            </div>
+            <div class="row">
+                <!-- MEtoodo de pago -->
+                <div class="form-outline mb-4 col">
+                    <label class="form-label" for="email">Metodos de pago</label>
+                    <input type="email" id="email" name="email" class="form-control" />
+                </div>
+                <!-- Banco -->
+                <div class="form-outline mb-4 col ">
+                    <label class="form-label" for="email">banco</label>
+                    <input type="email" id="email" name="email" class="form-control" />
+                </div>
+            </div>
+            <!-- Submit button -->
+            <div class="container d-flex justify-content-center">
                 <button type="submit" name="btn_ingresar" class="btn btn-primary btn-block w-50 mb-4">Unirme!</button>
             </div>
             <!-- Register buttons -->
@@ -95,8 +116,8 @@
         </form>
         <div class="bg-light">
             <?php
-                include "./conectors/conexion.php";
-                include "./conectors/ProcesarU.php";
+            include "./conectors/conexion.php";
+            include "./conectors/ProcesarU.php";
             ?>
         </div>
     </div>
