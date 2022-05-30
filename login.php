@@ -74,7 +74,7 @@
 
            <!-- Submit button -->
            <div class="container d-flex justify-content-center">
-                <button type="submit" name="btn_ingresar" class="btn btn-primary btn-block w-50 mb-4">Unirme!</button>
+                <button type="submit" name="btn_ingresar" class="btn btn-primary btn-block w-50 mb-4">Ingresar</button>
             </div>
             <!-- Register buttons -->
             <div class="text-center">

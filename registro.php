@@ -38,7 +38,7 @@
 
 <body>
     <div id="Contenedor">
-        <form class="container-fluid rounded shadow bg-light w-50 mt-5 mb-5 p-5 wow fadeIn" action="login.php" method="POST">
+        <form class="container-fluid rounded shadow bg-light w-50 mt-5 mb-5 p-5 wow fadeIn" action="registro.php" method="POST">
             <div class="text-center mx-auto mb-2 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
                 <h1 class="mb-3"><strong>Registro</strong></h1>
                 <p>Bienvenido a la comunidad</p>
@@ -48,19 +48,19 @@
             </div>
             <!-- Email input -->
             <div class="form-outline mb-4">
-                <label class="form-label" for="email">Email address</label>
+                <label class="form-label" for="email">Correo</label>
                 <input type="email" id="email" name="email" class="form-control" />
             </div>
             <!-- usuario input -->
             <div class="form-outline mb-4">
-                <label class="form-label" for="email">User</label>
-                <input type="email" id="email" name="email" class="form-control" />
+                <label class="form-label" for="user">Usuario</label>
+                <input type="text" id="user" name="user" class="form-control" />
             </div>
 
             <!-- Password input -->
             <div class="form-outline mb-4">
-                <label class="form-label" for="psw">Password</label>
-                <input type="password" id="psw" name="pwd" class="form-control" />
+                <label class="form-label" for="pwd">contraseña</label>
+                <input type="password" id="pwd" name="pwd" class="form-control" />
             </div>
             <!-- seccion datos personales -->
             <div class="container text-center mt-5">
@@ -69,13 +69,13 @@
             <div class="row">
                 <!-- Nombre -->
                 <div class="form-outline mb-4 col">
-                    <label class="form-label" for="email">Nombre</label>
-                    <input type="text" id="email" name="email" class="form-control" />
+                    <label class="form-label" for="name">Nombre</label>
+                    <input type="text" id="name" name="name" class="form-control" />
                 </div>
                 <!-- Apellido -->
                 <div class="form-outline mb-4 col">
-                    <label class="form-label" for="email">Apellidos</label>
-                    <input type="text" id="email" name="email" class="form-control" />
+                    <label class="form-label" for="apellido">Apellidos</label>
+                    <input type="text" id="apellido" name="apellido" class="form-control" />
                 </div>
             </div>
             <div class="container text-center mt-5">
@@ -84,18 +84,38 @@
             <div class="row">
                 <!-- MEtoodo de pago -->
                 <div class="form-outline mb-4 col">
-                    <label class="form-label" for="email">Metodos de pago</label>
-                    <input type="email" id="email" name="email" class="form-control" />
+                    <label class="form-label" for="select">Metodos de pago</label>
+                    <select id="select" name="select" class="form-control">
+                        <option value="" selected>selecciona una opcion</option>
+                        <?php
+                            include "./conectors/conexion.php";
+                            include "./conectors/ProcesarR.php";
+                            select1($myPDO);
+                        ?>
+                    </select>
                 </div>
                 <!-- Banco -->
+                <div class="form-outline mb-4 col">
+                    <label class="form-label" for="select2">Banco</label>
+                    <select id="select2" name="select2" class="form-control">
+                        <option value="" selected>selecciona una opcion</option>
+                        <?php
+                            select2($myPDO);
+                        ?>
+                    </select>
+                </div>
+                <!-- Numero de la cuenta -->
                 <div class="form-outline mb-4 col ">
-                    <label class="form-label" for="email">banco</label>
-                    <input type="email" id="email" name="email" class="form-control" />
+                    <label class="form-label" for="cuenta">N° de cuenta</label>
+                    <input type="cuenta" id="cuenta" name="cuenta" class="form-control" />
                 </div>
             </div>
             <!-- Submit button -->
             <div class="container d-flex justify-content-center">
-                <button type="submit" name="btn_ingresar" class="btn btn-primary btn-block w-50 mb-4">Unirme!</button>
+                <button type="submit" name="btn_registrar" class="btn btn-primary btn-block w-50 mb-4">Unirme!</button>
+                <?php
+                    Submit($myPDO);
+                ?>
             </div>
             <!-- Register buttons -->
             <div class="text-center">
