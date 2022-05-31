@@ -129,6 +129,182 @@
           ';
         } 
       }
+      if(isset($_GET["id_ubicacion"])){
+        try {
+          include "./conexion.php";
+          $id_categoria = $_GET['id_categoria'];;
+          $sql =
+              "
+        DELETE FROM ubicacion
+          where id_ubicacion=" . $id_ubicacion . ";
+        ";
+          $myPDO->query($sql);
+          echo "
+                  <script>
+                        Swal.fire({
+                            title: 'ubicacion Eliminada',
+                            text: 'se ha eliminado la ubicacion',
+                            icon: 'success',
+                            confirmButtonColor: '#3085d6',
+                            confirmButtonText: 'Aceptar'
+                          }).then((result) => {
+                            if (result.isConfirmed) {
+                                window.location.href = '../ubicacion.php'
+                            }
+                          })
+                        </script>
+                        ";
+        } catch (PDOException $e) {
+          echo"<script>alert(`".$e."`)</script>";
+          echo '
+          <script>
+          Swal.fire({
+              title: "Ups...!",
+              text: "No se puede eliminar la ubicacion esta tiene cabañas asociadas",
+              icon: "error",
+              confirmButtonColor: "#3085d6",
+              confirmButtonText: "Aceptar"
+            }).then((result) => {
+              if (result.isConfirmed) {
+                  window.location.href = "../ubicacion.php"
+              }
+            })
+          </script>
+          ';
+        } 
+      }
+      if(isset($_GET["id_cabin"])){
+        try {
+          include "./conexion.php";
+          $id_cabin = $_GET['id_cabin'];;
+          $sql =
+              "
+        DELETE FROM cabin
+          where id_cabin=" . $id_cabin . ";
+        ";
+          $myPDO->query($sql);
+          echo "
+                  <script>
+                        Swal.fire({
+                            title: 'cabaña Eliminada',
+                            text: 'se ha eliminado la cabaña',
+                            icon: 'success',
+                            confirmButtonColor: '#3085d6',
+                            confirmButtonText: 'Aceptar'
+                          }).then((result) => {
+                            if (result.isConfirmed) {
+                                window.location.href = '../cabin.php'
+                            }
+                          })
+                        </script>
+                        ";
+        } catch (PDOException $e) {
+          echo"<script>alert(`".$e."`)</script>";
+          echo '
+          <script>
+          Swal.fire({
+              title: "Ups...!",
+              text: "No se puede eliminar la cabaña",
+              icon: "error",
+              confirmButtonColor: "#3085d6",
+              confirmButtonText: "Aceptar"
+            }).then((result) => {
+              if (result.isConfirmed) {
+                  window.location.href = "../cabin.php"
+              }
+            })
+          </script>
+          ';
+        } 
+      }
+      if(isset($_GET["id_metp"])){
+        try {
+          include "./conexion.php";
+          $id_metp = $_GET['id_metp'];;
+          $sql =
+              "
+        DELETE FROM metodo_de_pago
+          where id_metp=" . $id_metp . ";
+        ";
+          $myPDO->query($sql);
+          echo "
+                  <script>
+                        Swal.fire({
+                            title: 'Metodo de pago Eliminadp',
+                            text: 'se ha eliminado el metodo de pago',
+                            icon: 'success',
+                            confirmButtonColor: '#3085d6',
+                            confirmButtonText: 'Aceptar'
+                          }).then((result) => {
+                            if (result.isConfirmed) {
+                                window.location.href = '../mtp.php'
+                            }
+                          })
+                        </script>
+                        ";
+        } catch (PDOException $e) {
+          echo"<script>alert(`".$e."`)</script>";
+          echo '
+          <script>
+          Swal.fire({
+              title: "Ups...!",
+              text: "No se puede eliminar la cabaña",
+              icon: "error",
+              confirmButtonColor: "#3085d6",
+              confirmButtonText: "Aceptar"
+            }).then((result) => {
+              if (result.isConfirmed) {
+                  window.location.href = "../mtp.php"
+              }
+            })
+          </script>
+          ';
+        } 
+      }
+      if(isset($_GET["id_banco"])){
+        try {
+          include "./conexion.php";
+          $id_banco = $_GET['id_banco'];;
+          $sql =
+              "
+        DELETE FROM banco
+          where id_banco=" . $id_banco . ";
+        ";
+          $myPDO->query($sql);
+          echo "
+                  <script>
+                        Swal.fire({
+                            title: 'Aliado retirado',
+                            text: 'se ha eliminado el Aliado',
+                            icon: 'success',
+                            confirmButtonColor: '#3085d6',
+                            confirmButtonText: 'Aceptar'
+                          }).then((result) => {
+                            if (result.isConfirmed) {
+                                window.location.href = '../bancos.php'
+                            }
+                          })
+                        </script>
+                        ";
+        } catch (PDOException $e) {
+          echo"<script>alert(`".$e."`)</script>";
+          echo '
+          <script>
+          Swal.fire({
+              title: "Ups...!",
+              text: "No se puede eliminar el aliado",
+              icon: "error",
+              confirmButtonColor: "#3085d6",
+              confirmButtonText: "Aceptar"
+            }).then((result) => {
+              if (result.isConfirmed) {
+                  window.location.href = "../bancos.php"
+              }
+            })
+          </script>
+          ';
+        } 
+      }
     ?>
 </body>
 

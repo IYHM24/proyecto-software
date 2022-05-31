@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Cabin - Fabricantes</title>
+    <title>Cabin - cabañas</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -81,110 +81,203 @@
             </nav>
 
         </div>
+
         <!-- Navbar End -->
         <!-- Fabricantes start -->
         <div class="container-xxl py-5">
             <div class="container">
                 <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-                    <h1 class="mb-3"><strong>Gestion de Categorias</strong></h1>
-                    <p>Nuestras categorias actuales</p>
+                    <h1 class="mb-3"><strong>Gestion de clientes</strong></h1>
+                    <p>Clientes registrados</p>
                 </div>
-                <button class="btn btn-primary mb-5" onclick="modalCategoria();">+</button>
+                <button class="btn btn-primary mb-5" onclick="document.location.href='registro.php'">+</button>
                 <?php
                 include "./conectors/conexion.php";
-                try {
-                    if (isset($_GET["nombre"])) {
-                        $nombre = $_GET["nombre"];
-                        if ($nombre != "") {
-                            $sql = "
-                                INSERT INTO categorias (nombre)
-                                VALUES ('" . $nombre . "'); 
-                            ";
-                            $myPDO->query($sql);
-                            echo "
-                            <script>
-                            Swal.fire({
-                                title: 'categoria añadida',
-                                text: 'Se añadio satisfactoriamente el registro',
-                                icon: 'success',
-                                confirmButtonColor: '#3085d6',
-                                confirmButtonText: 'Aceptar'
-                                }).then((result) => {
-                                if (result.isConfirmed) {
-                                    window.location.href = 'categorias.php'
-                                }
-                                })
-                            </script>
-                            ";
-                        } else {
-                            echo '
-                                <script>
-                                Swal.fire({
-                                    title: "Ups...!",
-                                    text: "Rellena todos los campos",
-                                    icon: "error",
-                                    confirmButtonColor: "#3085d6",
-                                    confirmButtonText: "Aceptar"
-                                }).then((result) => {
-                                    if (result.isConfirmed) {
-                                        window.location.href = "categorias.php"
-                                    }
-                                })
-                                </script>
-                                ';
-                        }
-                    }
-                } catch (PDOException $e) {
-                    echo "
-                                <script>
-                                console.log('" . $e . "');
-                                Swal.fire({
-                                    title: 'Ups...!',
-                                    text: 'No se agrego el registro este tiene cabañas asociadas',
-                                    icon: 'error',
-                                    confirmButtonColor: '#3085d6',
-                                    confirmButtonText: 'Aceptar'
-                                }).then((result) => {
-                                    if (result.isConfirmed) {
-                                        window.location.href = 'categorias.php'
-                                    }
-                                })
-                                </script>
-                              ";
-                }
-
                 ?>
                 <table class="table table-hover">
                     <thead class="bg-primary">
                         <tr class="text-light">
                             <th scope="col">id</th>
                             <th scope="col">Nombre</th>
+                            <th scope="col">Apellido</th>
+                            <th scope="col">Correo</th>
+                            <th scope="col">Usuario</th>
+                            <th scope="col">mas informacion</th>
                             <th scope="col">delete</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php
                         include "./conectors/Tables.php";
-                        include "./conectors/eliminarCategoria.php";
-                        $sql = Tables("categorias", $myPDO);
+                        $sql = Tables("cliente;", $myPDO);
                         $rowP = 1;
                         foreach ($myPDO->query($sql) as $row) {
                             echo
                             '
                             <tr>
-                                <th scope="row">' . $row["id_categoria"] . '</th>
+                                <th scope="row">' . $row["id_cliente"] . '</th>
                                 <td>' . $row["nombre"] . '</td>
-                                <td><a class="btn" href="./conectors/eliminar.php?id_categoria=' . $row["id_categoria"] . '"><i class="fa fa-solid fa-trash text-primary"></i></a></td>
+                                <td>' . $row["apellido"] . '</td>
+                                <td>' . $row["correo"] . '</td>
+                                <td>' . $row["usuario"] . '</td>
+                                <td><a  href="clientes.php?id_cliente=' . $row["id_cliente"] . '&nombre=' . $row["nombre"] . '">Mas informacion</a></td>
+                                <td><a class="btn" href="./conectors/eliminar.php?id_cabin=' . $row["id_cliente"] . '"><i class="fa fa-solid fa-trash text-primary"></i></a></td>
                             </tr>    
                             ';
                             $rowP++;
                         }
                         ?>
+
                     </tbody>
                 </table>
             </div>
         </div>
         <!-- Fabricantes End -->
+
+        <!-- Info clientes -->
+        <?php
+        if (isset($_GET['id_cliente']) && isset($_GET['nombre'])) {
+            $id_cliente = $_GET['id_cliente'];
+            $nombre = $_GET['nombre'];
+            $Exit = 1;
+            /* try { */
+            $sql = "
+                                SELECT * FROM reservas WHERE id_cliente =" . $id_cliente . ";
+                            ";
+
+            echo "
+            <div class='container border mt-5 wow fadeInUp'>
+                <h3>Informacion reservas " . $nombre . "</h3>";
+            foreach ($myPDO->query($sql) as $row) {
+
+                echo "
+                        <h5><strong>Reserva #" . $Exit . "</strong></h5>
+                        <p><strong>Fecha inicial</strong>" . $row['fecha_ini'] . "</p>
+                        <p><strong>Fecha final</strong>" . $row['fecha_fin'] . "</p>
+                    ";
+                $Exit++;
+            }
+            echo "</div>";
+            /* } catch (PDOException $e) {
+                            echo"<script>alert(`".$e."`)</script>";
+                            echo '
+                            <script>
+                            Swal.fire({
+                                title: "Ups...!",
+                                text: "Ha ocurrio un error al obtener los datos",
+                                icon: "error",
+                                confirmButtonColor: "#3085d6",
+                                confirmButtonText: "Aceptar"
+                              }).then((result) => {
+                                if (result.isConfirmed) {
+                                    window.location.href = "clientes.php"
+                                }
+                              })
+                            </script>
+                            ';
+                        } */
+        }
+        ?>
+        <?php
+        if (isset($_GET['id_cliente']) && isset($_GET['nombre'])) {
+            $id_cliente = $_GET['id_cliente'];
+            $nombre = $_GET['nombre'];
+            $Exit = 1;
+            /* try { */
+            $sql = "
+            SELECT cl.nombre, me.nombre as metodo_de_pago, ba.nombre as banco, inf.ncuenta
+            FROM informacion_pago inf
+            INNER JOIN metodo_de_pago me
+            ON me.id_metp = inf.id_metp
+            INNER JOIN cliente cl
+            ON cl.id_cliente = inf.id_cliente
+            INNER JOIN banco ba
+            ON ba.id_banco = inf.id_banco
+            WHERE
+            cl.id_cliente = ".$id_cliente.";";
+
+            echo "
+                <div class='container border mt-5 wow fadeInUp'>
+                    <h3>Informacion de pago " . $nombre . "</h3>";
+            foreach ($myPDO->query($sql) as $row) {
+
+                echo "
+                            <h5><strong>Metodo de pago #" . $Exit . "</strong></h5>
+                            <p><strong>Nombre: </strong>" . $row['metodo_de_pago'] . "</p>
+                            <p><strong>Banco: </strong>" . $row['banco'] . "</p>
+                            <p><strong>Cuenta: </strong>" . $row['ncuenta'] . "</p>
+                        ";
+                $Exit++;
+            }
+            echo "</div>";
+            /* } catch (PDOException $e) {
+                                echo"<script>alert(`".$e."`)</script>";
+                                echo '
+                                <script>
+                                Swal.fire({
+                                    title: "Ups...!",
+                                    text: "Ha ocurrio un error al obtener los datos",
+                                    icon: "error",
+                                    confirmButtonColor: "#3085d6",
+                                    confirmButtonText: "Aceptar"
+                                  }).then((result) => {
+                                    if (result.isConfirmed) {
+                                        window.location.href = "clientes.php"
+                                    }
+                                  })
+                                </script>
+                                ';
+                            } */
+        }
+        ?>
+        <?php
+        if (isset($_GET['id_cliente']) && isset($_GET['nombre'])) {
+            $id_cliente = $_GET['id_cliente'];
+            $nombre = $_GET['nombre'];
+            $Exit = 1;
+            /* try { */
+            $sql = "            
+            SELECT f.id_factura, c.nombre, f.fecha_factura, f.estado_pago 
+            FROM factura f
+            INNER JOIN reservas r
+            ON r.id_reserva = f.id_reserva
+            INNER JOIN cliente c
+            ON r.id_cliente = c.id_cliente
+            WHERE c.id_cliente = ".$id_cliente.";";
+            echo "
+                <div class='container border mt-5 wow fadeInUp'>
+                    <h3>Informacion de facturas " . $nombre . "</h3>";
+            foreach ($myPDO->query($sql) as $row) {
+
+                echo "
+                            <p><strong>fecha factura: </strong>" . $row['fecha_factura'] . "</p>
+                            <p><strong>estado de pago: </strong>" . $row['estado_pago'] . "</p>
+                        ";
+                $Exit++;
+            }
+            echo "</div>";
+            /* } catch (PDOException $e) {
+                                echo"<script>alert(`".$e."`)</script>";
+                                echo '
+                                <script>
+                                Swal.fire({
+                                    title: "Ups...!",
+                                    text: "Ha ocurrio un error al obtener los datos",
+                                    icon: "error",
+                                    confirmButtonColor: "#3085d6",
+                                    confirmButtonText: "Aceptar"
+                                  }).then((result) => {
+                                    if (result.isConfirmed) {
+                                        window.location.href = "clientes.php"
+                                    }
+                                  })
+                                </script>
+                                ';
+                            } */
+        }
+        ?>
+        <!-- Info clientes end -->
+
 
         <!-- Footer Start -->
         <div class="container-fluid bg-dark text-white-50 footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">

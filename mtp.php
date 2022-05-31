@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Cabin - Fabricantes</title>
+    <title>Cabin - Pagos</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -49,8 +49,6 @@
         </div>
         <!-- Spinner End -->
 
-
-
         <!-- Navbar Start -->
         <div class="container-fluid nav-bar bg-transparent">
             <nav class="navbar navbar-expand-lg bg-white navbar-light py-0 px-4">
@@ -86,10 +84,10 @@
         <div class="container-xxl py-5">
             <div class="container">
                 <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-                    <h1 class="mb-3"><strong>Gestion de Categorias</strong></h1>
-                    <p>Nuestras categorias actuales</p>
+                    <h1 class="mb-3"><strong>Gestion de metodos de pago</strong></h1>
+                    <p>Metodos de pago avalados por la compañia</p>
                 </div>
-                <button class="btn btn-primary mb-5" onclick="modalCategoria();">+</button>
+                <button class="btn btn-primary mb-5" onclick="modalmtp();">+</button>
                 <?php
                 include "./conectors/conexion.php";
                 try {
@@ -97,21 +95,21 @@
                         $nombre = $_GET["nombre"];
                         if ($nombre != "") {
                             $sql = "
-                                INSERT INTO categorias (nombre)
+                                INSERT INTO metodo_de_pago (nombre)
                                 VALUES ('" . $nombre . "'); 
                             ";
                             $myPDO->query($sql);
                             echo "
                             <script>
                             Swal.fire({
-                                title: 'categoria añadida',
-                                text: 'Se añadio satisfactoriamente el registro',
+                                title: 'Metodo de pago añadido',
+                                text: 'Se añadio satisfactoriamente el metodo de pago',
                                 icon: 'success',
                                 confirmButtonColor: '#3085d6',
                                 confirmButtonText: 'Aceptar'
                                 }).then((result) => {
                                 if (result.isConfirmed) {
-                                    window.location.href = 'categorias.php'
+                                    window.location.href = 'mtp.php'
                                 }
                                 })
                             </script>
@@ -127,7 +125,7 @@
                                     confirmButtonText: "Aceptar"
                                 }).then((result) => {
                                     if (result.isConfirmed) {
-                                        window.location.href = "categorias.php"
+                                        window.location.href = "mtp.php"
                                     }
                                 })
                                 </script>
@@ -140,13 +138,13 @@
                                 console.log('" . $e . "');
                                 Swal.fire({
                                     title: 'Ups...!',
-                                    text: 'No se agrego el registro este tiene cabañas asociadas',
+                                    text: 'No se agrego el registro este tiene Clientes asociados',
                                     icon: 'error',
                                     confirmButtonColor: '#3085d6',
                                     confirmButtonText: 'Aceptar'
                                 }).then((result) => {
                                     if (result.isConfirmed) {
-                                        window.location.href = 'categorias.php'
+                                        window.location.href = 'mtp.php'
                                     }
                                 })
                                 </script>
@@ -165,16 +163,15 @@
                     <tbody>
                         <?php
                         include "./conectors/Tables.php";
-                        include "./conectors/eliminarCategoria.php";
-                        $sql = Tables("categorias", $myPDO);
+                        $sql = Tables("metodo_de_pago", $myPDO);
                         $rowP = 1;
                         foreach ($myPDO->query($sql) as $row) {
                             echo
                             '
                             <tr>
-                                <th scope="row">' . $row["id_categoria"] . '</th>
+                                <th scope="row">' . $rowP . '</th>
                                 <td>' . $row["nombre"] . '</td>
-                                <td><a class="btn" href="./conectors/eliminar.php?id_categoria=' . $row["id_categoria"] . '"><i class="fa fa-solid fa-trash text-primary"></i></a></td>
+                                <td><a class="btn" href="./conectors/eliminar.php?id_metp=' . $row["id_metp"] . '"><i class="fa fa-solid fa-trash text-primary"></i></a></td>
                             </tr>    
                             ';
                             $rowP++;

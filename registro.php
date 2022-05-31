@@ -98,7 +98,7 @@
                 <div class="form-outline mb-4 col">
                     <label class="form-label" for="select2">Banco</label>
                     <select id="select2" name="select2" class="form-control">
-                        <option value="" selected>selecciona una opcion</option>
+                    <option value="" selected>selecciona una opcion</option>
                         <?php
                             select2($myPDO);
                         ?>

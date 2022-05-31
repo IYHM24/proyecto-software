@@ -81,6 +81,7 @@
             </nav>
 
         </div>
+        
         <!-- Navbar End -->
         <!-- Fabricantes start -->
         <div class="container-xxl py-5">
@@ -89,92 +90,46 @@
                     <h1 class="mb-3"><strong>Gestion de cabañas</strong></h1>
                     <p>Nuestras cabañas actuales</p>
                 </div>
-                <button class="btn btn-primary mb-5" onclick="modalCategoria();">+</button>
+                <button class="btn btn-primary mb-5" onclick="document.location.href='newCabin.php'">+</button>
                 <?php
-                include "./conectors/conexion.php";
-                try {
-                    if (isset($_GET["nombre"])) {
-                        $nombre = $_GET["nombre"];
-                        if ($nombre != "") {
-                            $sql = "
-                                INSERT INTO categorias (nombre)
-                                VALUES ('" . $nombre . "'); 
-                            ";
-                            $myPDO->query($sql);
-                            echo "
-                            <script>
-                            Swal.fire({
-                                title: 'categoria añadida',
-                                text: 'Se añadio satisfactoriamente el registro',
-                                icon: 'success',
-                                confirmButtonColor: '#3085d6',
-                                confirmButtonText: 'Aceptar'
-                                }).then((result) => {
-                                if (result.isConfirmed) {
-                                    window.location.href = 'categorias.php'
-                                }
-                                })
-                            </script>
-                            ";
-                        } else {
-                            echo '
-                                <script>
-                                Swal.fire({
-                                    title: "Ups...!",
-                                    text: "Rellena todos los campos",
-                                    icon: "error",
-                                    confirmButtonColor: "#3085d6",
-                                    confirmButtonText: "Aceptar"
-                                }).then((result) => {
-                                    if (result.isConfirmed) {
-                                        window.location.href = "categorias.php"
-                                    }
-                                })
-                                </script>
-                                ';
-                        }
-                    }
-                } catch (PDOException $e) {
-                    echo "
-                                <script>
-                                console.log('" . $e . "');
-                                Swal.fire({
-                                    title: 'Ups...!',
-                                    text: 'No se agrego el registro este tiene cabañas asociadas',
-                                    icon: 'error',
-                                    confirmButtonColor: '#3085d6',
-                                    confirmButtonText: 'Aceptar'
-                                }).then((result) => {
-                                    if (result.isConfirmed) {
-                                        window.location.href = 'categorias.php'
-                                    }
-                                })
-                                </script>
-                              ";
-                }
-
+                    include "./conectors/conexion.php";
                 ?>
                 <table class="table table-hover">
                     <thead class="bg-primary">
                         <tr class="text-light">
                             <th scope="col">id</th>
                             <th scope="col">Nombre</th>
+                            <th scope="col">cuartos</th>
+                            <th scope="col">tematica</th>
+                            <th scope="col">descripcion</th>
+                            <th scope="col">fabricante</th>
+                            <th scope="col">categoria</th>
+                            <th scope="col">precio</th>
+                            <th scope="col">ubicacion</th>
+                            <th scope="col">url img</th>
                             <th scope="col">delete</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php
                         include "./conectors/Tables.php";
-                        include "./conectors/eliminarCategoria.php";
-                        $sql = Tables("categorias", $myPDO);
+                        $sql = Tables("cabint;", $myPDO);
                         $rowP = 1;
                         foreach ($myPDO->query($sql) as $row) {
                             echo
                             '
                             <tr>
-                                <th scope="row">' . $row["id_categoria"] . '</th>
+                                <th scope="row">' . $row["id_cabin"] . '</th>
                                 <td>' . $row["nombre"] . '</td>
-                                <td><a class="btn" href="./conectors/eliminar.php?id_categoria=' . $row["id_categoria"] . '"><i class="fa fa-solid fa-trash text-primary"></i></a></td>
+                                <td>' . $row["cuartos"] . '</td>
+                                <td>' . $row["tematica"] . '</td>
+                                <td>' . $row["descripcion"] . '</td>
+                                <td>' . $row["fabricante"] . '</td>
+                                <td>' . $row["categoria"] . '</td>
+                                <td>' . $row["precio"] . '</td>
+                                <td>' . $row["ubicacion"] . '</td>
+                                <td><a href="'. $row["url_img"] .'">ver imagen</a></td>
+                                <td><a class="btn" href="./conectors/eliminar.php?id_cabin=' . $row["id_cabin"] . '"><i class="fa fa-solid fa-trash text-primary"></i></a></td>
                             </tr>    
                             ';
                             $rowP++;

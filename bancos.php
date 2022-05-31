@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 
 <head>
     <meta charset="utf-8">
-    <title>Cabin - Fabricantes</title>
+    <title>Cabin - Bancos</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -86,10 +86,11 @@
         <div class="container-xxl py-5">
             <div class="container">
                 <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-                    <h1 class="mb-3"><strong>Gestion de Categorias</strong></h1>
-                    <p>Nuestras categorias actuales</p>
+                    <h1 class="mb-3"><strong>Gestion de Bancos</strong></h1>
+                    <p>Todos los bancos aliados</p>
                 </div>
-                <button class="btn btn-primary mb-5" onclick="modalCategoria();">+</button>
+
+                <button class="btn btn-primary mb-5" onclick="modalBanco();">+</button>
                 <?php
                 include "./conectors/conexion.php";
                 try {
@@ -97,21 +98,21 @@
                         $nombre = $_GET["nombre"];
                         if ($nombre != "") {
                             $sql = "
-                                INSERT INTO categorias (nombre)
+                                INSERT INTO banco (nombre)
                                 VALUES ('" . $nombre . "'); 
                             ";
                             $myPDO->query($sql);
                             echo "
                             <script>
                             Swal.fire({
-                                title: 'categoria añadida',
-                                text: 'Se añadio satisfactoriamente el registro',
+                                title: 'Aliado añadido',
+                                text: 'Se añadio satisfactoriamente un banco',
                                 icon: 'success',
                                 confirmButtonColor: '#3085d6',
                                 confirmButtonText: 'Aceptar'
                                 }).then((result) => {
                                 if (result.isConfirmed) {
-                                    window.location.href = 'categorias.php'
+                                    window.location.href = 'bancos.php'
                                 }
                                 })
                             </script>
@@ -127,7 +128,7 @@
                                     confirmButtonText: "Aceptar"
                                 }).then((result) => {
                                     if (result.isConfirmed) {
-                                        window.location.href = "categorias.php"
+                                        window.location.href = "bancos.php"
                                     }
                                 })
                                 </script>
@@ -146,7 +147,7 @@
                                     confirmButtonText: 'Aceptar'
                                 }).then((result) => {
                                     if (result.isConfirmed) {
-                                        window.location.href = 'categorias.php'
+                                        window.location.href = 'bancos.php'
                                     }
                                 })
                                 </script>
@@ -165,16 +166,15 @@
                     <tbody>
                         <?php
                         include "./conectors/Tables.php";
-                        include "./conectors/eliminarCategoria.php";
-                        $sql = Tables("categorias", $myPDO);
+                        $sql = Tables("banco", $myPDO);
                         $rowP = 1;
                         foreach ($myPDO->query($sql) as $row) {
                             echo
                             '
                             <tr>
-                                <th scope="row">' . $row["id_categoria"] . '</th>
+                                <th scope="row">' . $rowP . '</th>
                                 <td>' . $row["nombre"] . '</td>
-                                <td><a class="btn" href="./conectors/eliminar.php?id_categoria=' . $row["id_categoria"] . '"><i class="fa fa-solid fa-trash text-primary"></i></a></td>
+                                <td><a class="btn" href="./conectors/eliminar.php?id_banco=' . $row["id_banco"] . '"><i class="fa fa-solid fa-trash text-primary"></i></a></td>
                             </tr>    
                             ';
                             $rowP++;
