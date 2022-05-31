@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Cabin - Nueva Cabaña</title>
+    <title>Cabin - Reservar</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -35,46 +35,12 @@
     <script src="./js/onChange.js"></script>
 
     <!-- configs -->
-    <script src="./js/AdiminLoadPages.js"></script>
+    <script src="./js/reservasLoad.js"></script>
 
 </head>
 
 
 <body style="background-image: url('https://wallup.net/wp-content/uploads/2019/09/07/349698-jeep-cherokee-eu-version-2014-car-suv-4x4-off-road-4000x300.jpg');">
-    <div id="Contenedor">
-        <form class="container-fluid rounded shadow bg-light w-50 mt-5 mb-5 p-5 wow fadeIn" action="newReserva.php" method="GET">
-            <div class="text-center mx-auto mb-2 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-                <h1 class="mb-3"><strong>Agregar usuario</strong></h1>
-                <p>Agregar un nuevo usuario</p>
-            </div>
-            <!-- fecha inicial input -->
-            <div class="form-outline mb-4">
-                <label class="form-label" for="fecha_ini">Fecha de inicio</label>
-                <input type="Date" id="fecha_ini" name="fecha_ini" class="form-control" />
-            </div>
-            <!-- fecha final input -->
-            <div class="form-outline mb-4">
-                <label class="form-label" for="fecha_fin">Fecha final</label>
-                <input type="Date" id="fecha_fin" name="fecha_fin" class="form-control" />
-            </div>
-            <!-- cliente-->
-            <div class="form-outline mb-4 col">
-                <label class="form-label" for="select">Cliente</label>
-                <select id="select" name="select" class="form-control">
-                    <option value="" selected>selecciona un cliente</option>
-                    <?php
-                    include "./conectors/conexion.php";
-                    include "./conectors/ProcesarRE.php";
-                    select1($myPDO);
-                    ?>
-                </select>
-            </div>
-            <!-- Submit button -->
-            <div class="container d-flex justify-content-center">
-                <button type="submit" name="btn_agregar" class="btn btn-primary btn-block w-50 mb-4">Selecionar usuario</button>
-            </div>
-    </div>
-    </form>
     <div class="bg-light">
         <?php
         include "./conectors/conexion.php";
@@ -85,14 +51,12 @@
     <div id="Contenedor">
         <form class="container-fluid rounded shadow bg-light w-50 mt-5 mb-5 p-5 wow fadeIn" action="newReserva.php" method="POST">
             <div class="text-center mx-auto mb-2 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-                <h1 class="mb-3"><strong>Agregar reserva</strong></h1>
-                <p>Agregar una reserva</p>
+                <h1 class="mb-3"><strong>Reservar</strong></h1>
+                <p>Rserva ahora tu cabaña</p>
             </div>
             <?php
-            if (isset($_GET["btn_agregar"])) {
-                $id_cliente = $_GET["select"];
-                $fecha_ini = $_GET["fecha_ini"];
-                $fecha_fin = $_GET["fecha_fin"];
+            if (isset($_GET["id_cliente"])) {
+                $id_cliente = $_GET["id_cliente"];
                 echo '
                     <div class="form-outline visually-hidden">
                         <label class="form-label" for="id_cliente">id usuario elegido</label>

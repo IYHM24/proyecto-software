@@ -18,6 +18,6 @@ const menuUser =
 },
 {
     name: "Reservar",
-    ref: "perfil.php"
+    ref: "reservar.php"
 },
 ]

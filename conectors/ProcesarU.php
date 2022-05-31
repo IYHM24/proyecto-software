@@ -19,6 +19,7 @@ if (isset($_POST['btn_ingresar'])) {
 
         try {
             foreach ($myPDO->query($sql) as $row) {
+                $id_cliente = $row['id_cliente'];
                 $nombre = $row['nombre'];
                 $apellido = $row['apellido'];
                 $usuario = $row['usuario'];
@@ -61,6 +62,7 @@ if (isset($_POST['btn_ingresar'])) {
                         echo "
                     <script>
                         const user = {
+                            id_cliente:'".$id_cliente."',
                             nombre:'" . $nombre . "',
                             apellido:'" . $apellido . "',
                             usuario:'" . $usuario . "',
@@ -74,6 +76,7 @@ if (isset($_POST['btn_ingresar'])) {
                         echo "
                     <script>
                         const user = {
+                            id_cliente:'".$id_cliente."',
                             nombre:'" . $nombre . "',
                             apellido:'" . $apellido . "',
                             usuario:'" . $usuario . "',

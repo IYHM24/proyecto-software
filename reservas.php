@@ -48,9 +48,6 @@
             </div>
         </div>
         <!-- Spinner End -->
-
-
-
         <!-- Navbar Start -->
         <div class="container-fluid nav-bar bg-transparent">
             <nav class="navbar navbar-expand-lg bg-white navbar-light py-0 px-4">
@@ -87,8 +84,8 @@
         <div class="container-xxl py-5">
             <div class="container">
                 <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-                    <h1 class="mb-3"><strong>Gestion de cabañas</strong></h1>
-                    <p>Nuestras cabañas actuales</p>
+                    <h1 class="mb-3"><strong>Gestion de Reservas</strong></h1>
+                    <p>Nuestras reservas</p>
                 </div>
                 <button class="btn btn-primary mb-5" onclick="document.location.href='newReserva.php'">+</button>
                 <?php
@@ -98,38 +95,38 @@
                     <thead class="bg-primary">
                         <tr class="text-light">
                             <th scope="col">id</th>
-                            <th scope="col">Nombre</th>
-                            <th scope="col">cuartos</th>
-                            <th scope="col">tematica</th>
-                            <th scope="col">descripcion</th>
-                            <th scope="col">fabricante</th>
-                            <th scope="col">categoria</th>
-                            <th scope="col">precio</th>
-                            <th scope="col">ubicacion</th>
-                            <th scope="col">url img</th>
+                            <th scope="col">fecha_ini</th>
+                            <th scope="col">fecha_fin</th>
+                            <th scope="col">nombre</th>
+                            <th scope="col">cabaña</th>
+                            <th scope="col">metodo_pago</th>
+                            <th scope="col">banco</th>
+                            <th scope="col">Estado de pago</th>
+                            <th scope="col">Pago</th>
+                            <th scope="col">No pago</th>
                             <th scope="col">delete</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php
                         include "./conectors/Tables.php";
-                        $sql = Tables("cabint;", $myPDO);
+                        $sql = Tables("vista15", $myPDO);
                         $rowP = 1;
                         foreach ($myPDO->query($sql) as $row) {
                             echo
                             '
                             <tr>
-                                <th scope="row">' . $row["id_cabin"] . '</th>
+                                <th scope="row">' . $row["id_reserva"] . '</th>
+                                <td>' . $row["fecha_ini"] . '</td>
+                                <td>' . $row["fecha_fin"] . '</td>
                                 <td>' . $row["nombre"] . '</td>
-                                <td>' . $row["cuartos"] . '</td>
-                                <td>' . $row["tematica"] . '</td>
-                                <td>' . $row["descripcion"] . '</td>
-                                <td>' . $row["fabricante"] . '</td>
-                                <td>' . $row["categoria"] . '</td>
-                                <td>' . $row["precio"] . '</td>
-                                <td>' . $row["ubicacion"] . '</td>
-                                <td><a href="'. $row["url_img"] .'">ver imagen</a></td>
-                                <td><a class="btn" href="./conectors/eliminar.php?id_cabin=' . $row["id_cabin"] . '"><i class="fa fa-solid fa-trash text-primary"></i></a></td>
+                                <td>' . $row["cabaña"] . '</td>
+                                <td>' . $row["metodo_pago"] . '</td>
+                                <td>' . $row["banco"] . '</td>
+                                <td>' . $row["estado_pago"] . '</td>
+                                <td><a class="btn" href="./conectors/eliminar.php?id_cabin=' . $row["id_factura"] . '"><i class="fa fa-solid fa-check text-primary"></i></a></td>
+                                <td><a class="btn" href="./conectors/eliminar.php?id_cabin=' . $row["id_factura"] . '"><i class="fa fa-solid fa-ban text-primary"></i></a></td>
+                                <td><a class="btn" href="./conectors/eliminar.php?id_reserva=' . $row["id_reserva"] . '&id_factura='.$row["id_factura"].'"><i class="fa fa-solid fa-trash text-primary"></i></a></td>
                             </tr>    
                             ';
                             $rowP++;
