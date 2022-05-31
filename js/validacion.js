@@ -25,7 +25,7 @@ const validacion = () => {
         }
     } else {
         NavItems();
-        element.setAttribute("href","");
+        element.setAttribute("href", "");
         element.innerHTML = JSON.parse(localStorage.getItem('user')).usuario;
         for (let i = 0; i <= menuUser.length - 1; i++) {
             contentM = document.createElement("a");
@@ -41,19 +41,19 @@ const validacion = () => {
             content.appendChild(contentM);
         }
         const exit = document.createElement("button");
-        exit.classList.add("dropdown-item","bg-danger","text-center");
-        exit.innerHTML="Cerrar sesion";
+        exit.classList.add("dropdown-item", "btn", "btn-danger", "text-center");
+        exit.innerHTML = "Cerrar sesion";
         content.appendChild(exit);
-        exit.addEventListener('click',()=>{
+        exit.addEventListener('click', () => {
             localStorage.clear();
-            window.location.href="index.php";
+            window.location.href = "index.php";
         })
     }
 }
 
 const NavItems = () => {
     const options = document.querySelector("#options")
-    if ( localStorage.getItem('user') == null || JSON.parse(localStorage.getItem('user')).admin == false) {
+    if (localStorage.getItem('user') == null || JSON.parse(localStorage.getItem('user')).admin == false) {
         for (let i = 0; i < OptionsN.length; i++) {
             const item = document.createElement("a");
             item.setAttribute("href", OptionsN[i].ref);
@@ -65,9 +65,10 @@ const NavItems = () => {
         for (let i = 0; i < OptionsA.length; i++) {
             const item = document.createElement("a");
             item.setAttribute("href", OptionsA[i].ref);
-            item.classList.add("nav-item", "nav-link");
+            item.classList.add("nav-item", "nav-link",);
             item.innerHTML = OptionsA[i].name;
             options.appendChild(item);
+
         }
     }
 }

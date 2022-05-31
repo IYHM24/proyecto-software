@@ -66,8 +66,7 @@
                     <div id="sesionBoton">
                         <div id="MenuUser" class="nav-item dropdown">
                             <a id="Sesion"  class="nav-link dropdown-toggle btn btn-primary px-3 d-none d-lg-flex">Iniciar sesion</a>
-                            <div id="menu-content" class="dropdown-menu rounded-0 m-0">
-                            </div>
+                            <div id="menu-content" class="dropdown-menu rounded-0 m-0"></div>
                         </div>
                     </div>
                     <?php
